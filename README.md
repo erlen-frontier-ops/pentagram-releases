@@ -1,6 +1,6 @@
 # Pentagram desktop releases
 
-This public repository hosts signed desktop builds of Pentagram and the update manifest the application reads. It contains no source code.
+This public repository hosts signed desktop builds of Pentagram, the update manifest the application reads, and corresponding-source release assets. It does not host the Pentagram application source tree or its development history.
 
 ## Release assets
 
@@ -15,8 +15,9 @@ Verify a download before installing:
 
 ```sh
 sha256sum -c Pentagram_<version>_amd64.AppImage.sha256
-minisign -Vm Pentagram_<version>_amd64.AppImage -P <public key below>
 ```
+
+The application verifies update signatures itself before installing an update.
 
 ## License and third-party notices
 
@@ -35,6 +36,8 @@ The application updater reads the `latest.json` asset of the `updater` release:
 Every update is installed only after the application verifies its minisign signature.
 
 ## Public signing key
+
+The value below is the minisign public key file in base64 form, the form the Tauri updater configuration uses.
 
 ```text
 dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDI3RkM3REUzNTA4RjAzNzUKUldSMUE0OVE0MzM4SjM4U0pDSDlPRm5lVml6NytHUm9uMEZGdEE1S1ZkYXVvcGhkeUxXSWtFeDQK
